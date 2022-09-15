@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce</title>
+          <!------------------loading---------------------->
+
+     <link rel="stylesheet" href="css/loadingpage.css"> 
+      <!------------------header   ---------------------->
+      <link rel="stylesheet" href="style3.css">
+      <link rel="stylesheet" href="style.css">
+  <!------------------   footer---------------------->
+      <link rel="stylesheet" href="footer.css" >
+    <!--------------------bootstrap---------------------->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+     
+ 
+    <!------------------------fontawesome------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+ <link rel="stylesheet" href="css/slider.css">  
+
+</head>
+<body onload="/*setTimeout(loadpage,1000)*/">      
+		<!---loading page---------------------------------->
+        <!---- 
+	 
+     <div id="loadpage_parts1">   
+		</div>
+		<div id="loadpage_parts2">
+		</div>
+		<div id="loadpage_parts3">
+		</div>
+		<div id="loadpage_parts4">
+        </div>		 
+			
+		<script src="js/loadingpage.js"></script>
+        --->
+    
+    <!----------------------header-------------------------------->
+    <header id="header">
+      
+  </header>
+    <!----------------slider------------------------------->
+    <section id="section_slider">
+   
+    </section>
+    <!-------------------------------------products------------------------------------------------>
+    <section id="section_products" class="text-center m-5">
+        <h1 >All Products</h1>
+        <p  >
+          Our Products is The Best Of You Need
+         </p>
+         <div class="  text-center">
+          <div id="products" class="row  p-0 m-0 justify-content-center   ali">
+     
+           </div>
+        </div>
+
+      </section>
+      <section id="one_product">
+
+      </section>
+<!----------------------------------------footer-------------------------------------------------->
+ 
+     <footer id="footer">
+    
+    
+     </footer>
+    <script>
+         
+       
+    /******************************************************var getdata***************/
+            var xhttp= new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200)
+                {
+                      localStorage.setItem("myjson", this.responseText);
+                }                
+            }
+          
+            xhttp.open("GET","https://dummyjson.com/products",true);
+            xhttp.send(); 
+
+
+            let datajson=JSON.parse(localStorage.getItem("myjson"));
+            console.log(datajson);
+            
+           /*************************header***************************/
+           var header=    ` <div id='logoWrapper'>
+          <img id='logo' src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png" />
+          </div>
+          <input type="text" placeholder="search" class="inptext"/>
+          <ul>
+              
+               <li><a href="#" class="active">Home</a></li>   
+               <li><a href="#">Product</a></li>   
+               <li><a href="#">Delivery</a></li>   
+               <li><a href="#">About</a></li>    
+               <li><a href="#">Contact</a></li>     
+               <li><a href="#">Login</a></li>     
+               <li><a href="#">Register</a></li>    
+                  
+
+              
+          </ul>`;
+          setheader=()=>{
+            document.getElementById("header").innerHTML=header; 
+
+          }
+          setheader();
+
+           /************************slider************************/
+           var slider=`  <div id="slider" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#slider" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="${datajson.products[1].thumbnail}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>${datajson.products[1].title}</h5>
+                  <p>${datajson.products[1].description}</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="${datajson.products[2].thumbnail}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>${datajson.products[2].title}</h5>
+                  <p>${datajson.products[2].description}</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="${datajson.products[3].thumbnail}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>${datajson.products[3].title}</h5>
+                  <p>${datajson.products[3].description}</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="${datajson.products[4].thumbnail}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>${datajson.products[4].title}</h5>
+                  <p>${datajson.products[4].description}</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>`;
+          setslider=()=>{
+            document.getElementById("section_slider").innerHTML=slider; 
+
+          }
+          setslider();
+           /*************************products******************************/
+           var items="";
+           for(var i=0;i<24;i++){            
+                    items+=`
+                    <div class="col-sm-11 col-md-5 col-lg-3 my-1 ">
+                <div class="card   text-light" style="width: 18rem;border: 0px; ">
+                    <div class="card-header"style="background-color: #ff9900;">
+                      ${datajson.products[i].title} 
+                       </div>                                              
+                      <div class="card-body m-0 p-0"  >
+                        <img src="${datajson.products[i].thumbnail}" class="d-block      
+                        alt="..." style="max-width:100%;max-height:10rem;">
+
+                        <h1 class="card-title m-0 p-0"style="font-size:  1rem;"> 
+                          <div class="price-eCommerce" > 
+                            <div class="line-height-coin">${datajson.products[i].price}</div> 
+                            <div class="line-height-integer">$</div> 
+                              </div>
+                        </h1>
+                         
+                           <p  class=" m-3"style="color:#3e4551; ">
+                            <i class="fa-solid fa-cubes-stacked fa-3x"></i><span class"fs-3 " ><b> ${datajson.products[i].stock}  </b></span> left in stock
+                            <br><br>
+                         
+                            <i class="fa-solid fa-star fa-3x"></i><span class"fs-3 " > <b> ${datajson.products[i].rating}% </b> </span> Rating
+                            <br><br>
+                           
+                           </p>
+                           <div class="card-header"style="background-color: #ff9900;" onclick="setpro(${i})">
+                            <i class="fa-solid fa-cart-shopping fa-3x"></i> Add To Cart  
+                           </div> 
+                    </div>
+     
+                </div>
+              </div> 
+                    `;
+  
+
+           }
+           setproducts=()=>{
+            document.getElementById("products").innerHTML=items; 
+
+           }
+           setproducts();
+           hideproducts=()=>{
+            document.getElementById("products").innerHTML=""; 
+
+           }
+           /*************************footer********************************/
+           var footer=`
+           <div class="footer site-footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-3 mb-5">
+                    <h2>
+                        About us
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Nemo officiis dolores et totam doloribus enim aut. Autem minima eius 
+                        officia vero, error, cupiditate in commodi dolor dolorum hic assumenda consequuntur.
+                    </p>
+                    <p>
+                        <a href="#">click here to learn more</a>
+                    </p>
+                </div>
+                <div class="col md-3 mb-5">
+                    <h2>Contact &amp;Adress    </h2>
+                    <ul class="list unstyled footer-link">
+                        <li class="d-flex">
+                            <span class="me-3">Address:</span><span class="text-white">28 Aveunt Name,
+                                city Name,Country Name here
+                            </span>
+                        </li>
+                        <li class="d-flex">
+                            <span class="me-3">Telphone:</span><span class="text-white">+20 115 6156165
+                            </span>
+                        </li>
+                        <li class="d-flex">
+                            <span class="me-3">Email:</span><span class="text-white">
+                                Amazon@gmail.com
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-5">
+                    <h2>Quik link</h2>
+                    <ul class="list-unstayled footer-link">
+                        <li><a href="#">About US</a></li>
+                        <li><a href="#">Contact US</a></li>
+    
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h2>Our Social Media</h2>
+                    <ul class="list-unstyled footer-link d-flex">
+                        <li><a href="#"><span class="bi bi-facebook m-2"></span></a></li>
+                        <li><a href="#"><span class="bi bi-twitter m-2"></span></a></li>
+                        <li><a href="#"><span class="bi bi-instagram text-danger m-2"></span></a></li>
+                        <li><a href="#"><span class="bi bi-linkedin m-2"></span></a></li>
+                        <li><a href="#"><span class="bi bi-youtube text-danger m-2"></span></a></li>
+    
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text md-center text-left">
+                   <p>CopyRight <i class="bi bi-c-circle"></i> 2022</p>     
+                </div>
+            </div>
+        </div>
+    
+      </div>
+           `;
+           setfooter=()=>{
+            document.getElementById("footer").innerHTML=footer; 
+           }
+           setfooter();
+           /*****************************one product**********************************************/
+        
+      setpro=(i)=>{  
+         var pro=`
+           <div class="container">
+        <header>
+            <a href="#"><img src="images/logo.png" class="logo"></a>
+         <!--   <ul>
+                
+                     <li><a href="#">Home</a></li> 
+                     <li><a href="#">Product</a></li>  
+                    <li><a href="#">News</a></li> 
+                    <li><a href="#">About</a></li> 
+                    <li><a href="#">Contact</a></li> 
+                        
+
+                
+            </ul>  -->
+        </header>
+        <div class="content">
+            <div class="text">
+                <h2>
+                  ${datajson.products[i].title} 
+                </h2>
+                <p>
+                  ${datajson.products[i].description}
+                </p>
+                <h1 class="card-title m-0 p-0"style="font-size:  1rem;"> 
+                          <div class="price-eCommerce" > 
+                            <div class="line-height-coin">${datajson.products[i].price}</div> 
+                            <div class="line-height-integer">$</div> 
+                              </div>
+                        </h1>
+                        <p  class=" m-3"style="color:#3e4551; ">
+                            <i class="fa-solid fa-cubes-stacked fa-3x"></i><span class"fs-3 " ><b> ${datajson.products[i].stock}  </b></span> left in stock
+                            <br><br>
+                         
+                            <i class="fa-solid fa-star fa-3x"></i><span class"fs-3 " > <b> ${datajson.products[i].rating}% </b> </span> Rating
+                            <br><br>
+                <a href="#" onclick="setproducts();hidepro()">All Products</a>
+            </div>
+            <div class="image">
+                <img class="img" src="${datajson.products[i].thumbnail}" >
+            </div>
+        </div>    
+    <div class="icons">
+        <img onclick="phones(src);colors('#000')" src="${datajson.products[i].images[0]}">
+        <img onclick="phones(src);colors('#247ec8')" src="${datajson.products[i].images[1]}">
+        <img onclick="phones(src);colors('#1e1e1e')" src="${datajson.products[i].images[2]}">
+        <img onclick="phones(src);colors('#c79b53')" src="${datajson.products[i].images[3]}">
+
+
+
+    </div>   
+    
+    </div>
+
+           `;
+           hideproducts();
+        document.getElementById("one_product").innerHTML=pro; 
+
+      }
+      //setpro();
+      hidepro=()=>{
+        document.getElementById("one_product").innerHTML=" "; 
+
+      }
+    </script>
+      <script src="script.js"></script>
+</body>
+</html>
