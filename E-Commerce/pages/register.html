@@ -2,79 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register New Account</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/register.css">
-
-
+    <title>Register</title>
+    <link rel="stylesheet" href="Register.css">
+    <link rel="stylesheet" href="fontawesome-free-6.2.0-web/css/all.css">
 </head>
 <body>
-
-    <main>
-        <div id="container">
-            <div id="aside_left">
-                Ads
-            </div>
-            <div id="products">
-                <h1> Souq Mobile</h1>       
-
-                <div id="register">
-
-                    <form action="" method="post" >
-                        <fieldset> 
-                            <br/><br/>
-                            <legend>Register New Account</legend>
-                            <label for="userId"> </label>
-                            
-                            <label for="fname">First name:</label>
-                            <input type="text" id="fname" name="fname" required>
-                            <br/><br/>
-
-                            <label for="lname">Last name:</label>
-                            <input type="text" id="lname" name="lname" required>
-                            <br/> <br/>
-
-                            <label for="telInput">Mobile : </label>
-                            <input id="telInput" tabindex="1" pattern="[0-9]{,11}"  placeholder="01 000 000 000"  minlength="11" maxlength="11" type="tel">
-                            <br><br>
-
-                            <label for="emailInput">Email</label>
-                            <input id="emailInput" autofocused placeholder="example@site.com" type="email"  autocomplete="off">
-                            <br><br/>
-
-                            <label for="pass1">Password: </label>
-                            <input type="password" id="pass1" value="1111111" minlength="8" maxlength="16" pattern="[A-Za-z0-9]{8,16}" required>
-                            <br><br>
-                            <label for="pass">Re-enter Password: </label>
-                            <input type="password" id="pass" value="1111111" minlength="8" maxlength="16"  pattern="[A-Za-z0-9]{8,16}" required >
-                            <br><br>
-
-                            <label  >Gender: </label><br/><br/>
-                            <input type="radio" name="gender" value="female">Female
-                            <input type="radio" name="gender" value="male">Male 
-                            <br><br>
-
-                            <input type="checkbox" name="accept" value="accept" required  >  
-                            <a href="terms.html"> I agreed to terms and condition checkbox</a>
-                            <br><br><br/>
-
-                            <input type="submit" value="Submit"  >
-                            
-
-                        </fieldset>
-                    </form>    
+    <div class="container">
+        <div class="header">
+            <h2>
+                Create Account
+            </h2>
+            <form  class="form" id="form" action="ok.html">
+                <div class="form-control ">
+                    <label>UserName</label>
+                    <input type="text" placeholder="full name" id="username">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small id="small">Error massage</small>
                 </div>
-                <br/><br/>
-            </div>         
-            <div id="side_right">
-                Ads
-            </div>
-
+                <div class="form-control ">
+                    <label>Email</label>
+                    <input type="text" placeholder="example@gmail.com" id="email">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small id="small">Error massage</small>
+                </div>
+                <div class="form-control">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" id="password">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small id="small">Error massage</small>
+                </div>
+                <div class="form-control">
+                    <label>Password Check</label>
+                    <input type="password" placeholder="Password" id="password2">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small id="small">Error massage</small>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
         </div>
-        <section >
-        </section>
-    </main>
-   
+    </div>
+    <script src="Register.js"></script>
 </body>
 </html>

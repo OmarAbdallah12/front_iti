@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/register.css">
+
+
+</head>
+<body>
+
+    <main>
+        <div id="container">
+            <div id="aside_left">
+           
+            </div>
+            <div id="products">
+                <h1> Amazon  </h1>       
+
+                <div id="register">
+
+                    <form id="form" action="ok.html" method="post" >
+                        <fieldset> 
+                            <br/><br/>
+                            <legend>Sign in </legend>
+                            <label for="userId"> </label>
+                             <h4>Email or mobile phone number</h4>
+                            <label for="emailInput">Email :  </label>
+                            <input id="emailInput" autofocused placeholder="example@site.com" type="email"  autocomplete="off">
+                            <br><br/>
+
+                            <label for="pass1">Password : </label>
+                            <input type="password" id="pass1" value="1111111" minlength="8" maxlength="16" pattern="[A-Za-z0-9]{8,16}" required>
+                            <br><br>
+                  
+                            <input type="submit" value="Submit" formnovalidate >
+                            
+                        </fieldset>
+                    </form>    <br/>
+
+                </div>
+                <button onclick="window.location.assign('register.html')">Create a new account</button>
+
+                <br/><br/>
+            </div>         
+            <div id="side_right">
+          
+            </div>
+
+        </div>
+        <section >
+        </section>
+    </main>
+    <script>
+    const form=document.querySelector('#form');
+     const email=document.querySelector('#emailInput');
+    const password=document.querySelector('#pass1');
+ 
+    var patt=/^([a-zA-Z0-9_-]+)@(yahoo|gmail)\.(com)$/;
+
+    form.addEventListener('submit',(e)=>{
+        if(checkInputs()==false)
+        {    
+               e.preventDefault();
+        }
+        });
+        /************************************************** */
+        function checkInputs()
+        {
+        let checked=true;
+         const passwordvalue =  password.value.trim();
+         
+        if( !email.value.match(patt)||passwordvalue=='' ){
+             checked=false;
+        }  
+        return checked;
+    }
+
+
+    </script>
+   
+</body>
+</html>

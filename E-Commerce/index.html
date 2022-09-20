@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eCommerce</title>
+     <!--------------------bootstrap---------------------->
+    
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+      
+  
           <!------------------loading---------------------->
 
      <link rel="stylesheet" href="css/loadingpage.css"> 
       <!------------------header   ---------------------->
-      <link rel="stylesheet" href="style3.css">
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="css/style3.css">
+      <link rel="stylesheet" href="css/style.css">
   <!------------------   footer---------------------->
-      <link rel="stylesheet" href="footer.css" >
-    <!--------------------bootstrap---------------------->
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-     
- 
+      <link rel="stylesheet" href="css/footer.css" >
+   
     <!------------------------fontawesome------------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
  <link rel="stylesheet" href="css/slider.css">  
 
 </head>
-<body onload="/*setTimeout(loadpage,1000)*/">      
+<body onload="setTimeout(loadpage,1000)">      
 		<!---loading page---------------------------------->
-        <!---- 
+       
 	 
      <div id="loadpage_parts1">   
 		</div>
@@ -37,12 +38,12 @@
         </div>		 
 			
 		<script src="js/loadingpage.js"></script>
-        --->
+        
     
     <!----------------------header-------------------------------->
-    <header id="header">
-      
-  </header>
+    <header id="header"  class="container">
+             
+    </header>
     <!----------------slider------------------------------->
     <section id="section_slider">
    
@@ -89,31 +90,26 @@
             console.log(datajson);
             
            /*************************header***************************/
-           var header=    ` <div id='logoWrapper'>
+           var header= `
+          <div id='logoWrapper'>
           <img id='logo' src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png" />
           </div>
           <input type="text" placeholder="search" class="inptext"/>
           <ul>
               
                <li><a href="#" class="active">Home</a></li>   
-               <li><a href="#">Product</a></li>   
-               <li><a href="#">Delivery</a></li>   
-               <li><a href="#">About</a></li>    
-               <li><a href="#">Contact</a></li>     
-               <li><a href="#">Login</a></li>     
-               <li><a href="#">Register</a></li>    
+               <li><a href="#products">Product</a></li>   
+               <li><a href="pages/login.html">Login</a></li>     
+               <li><a href="pages/register.html">Register</a></li>    
                   
 
               
           </ul>`;
-          setheader=()=>{
-            document.getElementById("header").innerHTML=header; 
-
-          }
-          setheader();
+          document.getElementById("header").innerHTML=header; 
 
            /************************slider************************/
-           var slider=`  <div id="slider" class="carousel slide" data-bs-ride="false">
+           var slider=` 
+            <div id="slider" class="carousel slide" data-bs-ride="false">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -160,14 +156,11 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>`;
-          setslider=()=>{
-            document.getElementById("section_slider").innerHTML=slider; 
+          document.getElementById("section_slider").innerHTML=slider; 
 
-          }
-          setslider();
            /*************************products******************************/
            var items="";
-           for(var i=0;i<24;i++){            
+           for(var i=0;i<30;i++){            
                     items+=`
                     <div class="col-sm-11 col-md-5 col-lg-3 my-1 ">
                 <div class="card   text-light" style="width: 18rem;border: 0px; ">
@@ -279,29 +272,15 @@
     
       </div>
            `;
-           setfooter=()=>{
+           
             document.getElementById("footer").innerHTML=footer; 
-           }
-           setfooter();
-           /*****************************one product**********************************************/
+           
+            /*****************************one product**********************************************/
         
       setpro=(i)=>{  
          var pro=`
            <div class="container">
-        <header>
-            <a href="#"><img src="images/logo.png" class="logo"></a>
-         <!--   <ul>
-                
-                     <li><a href="#">Home</a></li> 
-                     <li><a href="#">Product</a></li>  
-                    <li><a href="#">News</a></li> 
-                    <li><a href="#">About</a></li> 
-                    <li><a href="#">Contact</a></li> 
-                        
-
-                
-            </ul>  -->
-        </header>
+       
         <div class="content">
             <div class="text">
                 <h2>
@@ -351,6 +330,6 @@
 
       }
     </script>
-      <script src="script.js"></script>
+      <script src="js/script.js"></script>
 </body>
 </html>
