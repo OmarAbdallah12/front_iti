@@ -8,25 +8,46 @@
     
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-      
-  
+         <!------------------------fontawesome------------------------->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
           <!------------------loading---------------------->
 
      <link rel="stylesheet" href="css/loadingpage.css"> 
       <!------------------header   ---------------------->
-      <link rel="stylesheet" href="css/style3.css">
-      <link rel="stylesheet" href="css/style.css">
-  <!------------------   footer---------------------->
-      <link rel="stylesheet" href="css/footer.css" >
-   
-    <!------------------------fontawesome------------------------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
- <link rel="stylesheet" href="css/slider.css">  
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/style.css">
 
+  <!-- <script defer src="js/cart.js"></script> -->
+  <!------------------   footer---------------------->
+   
+ 
+ <link rel="stylesheet" href="css/slider.css">  
+<style>body{
+    scroll-behavior: smooth;
+    background-color: #eaeded!important;
+ 
+}
+.card-btn{
+  cursor: pointer;
+}
+.zoom {
+  padding: 0px;
+  border: solid 1px black;
+  border-radius: 5px; 
+  transition: transform .2s; /* Animation */
+ width: 100%;
+ height: 100;
+  margin: 0 auto;
+}
+.zoom:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+</style>
 </head>
-<body onload="setTimeout(loadpage,1000)">      
+<body onload=" setTimeout(loadpage,1000) ">      
 		<!---loading page---------------------------------->
-       
+   <!--  -->   
 	 
      <div id="loadpage_parts1">   
 		</div>
@@ -38,19 +59,122 @@
         </div>		 
 			
 		<script src="js/loadingpage.js"></script>
-        
+         
     
     <!----------------------header-------------------------------->
-    <header id="header"  class="container">
-             
+    <div id="totoal_cart"class="cart">
+      <!--    <h2 class="card-title">your cart</h2>
+        <div class="cart-content">
+            <div class="cart-box">
+                <img src="img/product2.jpg" alt="" class="cart-img">
+                <div class="detail-box">
+                    <div class="cart-product-title">Earbuds</div>
+                    <div class="cart-price">$25</div>
+                    <input type="number" value="1"min=0 class="cart-quantity">
+                </div>
+                  <i class="fa-solid fa-circle-xmark"   id="close-cart"></i>
+            </div>
+        </div>
+         <div class="total">
+            <div class="total-title">Total = $</div>
+            <div id="total-price""class="total-price">0</div>
+        </div>
+         <button type="button" class="btn-buy">Buy Now</button>  -->
+      </div>
+    <header>
+
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand col-1" href="#"><img src="images/Amazon_logo.svg" width="100px" alt=""></a>
+          <a class="navbar-brand col-1" href="#"> <i class="fa-solid fa-location-dot"></i>  Egypt</a>
+
+          <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon">   </span>
+          </button>
+          <form class="d-flex col-4 " style="min-width: 40%!important;" >
+            <input list="browsers" class="form-control me-2 " type="text" placeholder="Search" onchange="fillproducts(this.value);setproducts();location.href='#section_products';">
+            <datalist id="browsers">
+              <option value="smartphones">
+              <option value="laptops">
+              <option value="groceries">
+              <option value="skincare">
+              <option value="fragrances">
+              <option value="home-decoration">
+            </datalist>
+            <button class="btn btn-warning " type="button"  onclick="location.href='#section_products';"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+     
+          
+          <div class="collapse navbar-collapse col-2" id="mynavbar">
+            <ul class="navbar-nav me-auto col-12">
+              
+              <li class="nav-item col-8">
+                <a class="nav-link logo" href="javascript:void(0)" style="color: white;" id="cart-icon">
+                    <i class="fa-solid fa-cart-shopping col-1 h-30 mx-3  bx bx-shopping-bag bx bx-shopping-bag" >
+                      
+                    </i>
+                    $<span id="cart_value">0</span>
+               </a>
+        
+              </li>
+          
+            </ul>
+            
+          </div>
+          <a class="navbar-brand col-1 m-0 p-0" href="pages/login.html">   Login </a> ||
+           
+          <a class="navbar-brand col-1 m-0 p-0" href="pages/register.html">   Register</a>
+        </div>
+      </nav>
+      
+     
     </header>
+   
+    <style>
+      nav div a,nav div ul li a{
+        color: white!important;font-weight: bold; 
+
+      }
+    </style>
+<nav class="navbar navbar-expand-sm  " style="color: white!important;background-color: #232f3e; ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#section_products" onclick="fillproducts('All');setproducts()">All</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar" >
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#section_products" onclick="fillproducts('smartphones');setproducts()">smartphones</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section_products"onclick="fillproducts('laptops');setproducts()">laptops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section_products"onclick="fillproducts('groceries');setproducts()">groceries</a>
+        </li>      
+        <li class="nav-item">
+          <a class="nav-link" href="#section_products"onclick="fillproducts('skincare');setproducts()">skincare</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section_products"onclick="fillproducts('fragrances');setproducts()">fragrances</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section_products"onclick="fillproducts('home-decoration');setproducts()">home decoration</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
     <!----------------slider------------------------------->
     <section id="section_slider">
    
     </section>
     <!-------------------------------------products------------------------------------------------>
     <section id="section_products" class="text-center m-5">
-        <h1 >All Products</h1>
+        <h1 >The Products</h1>
         <p  >
           Our Products is The Best Of You Need
          </p>
@@ -66,13 +190,12 @@
       </section>
 <!----------------------------------------footer-------------------------------------------------->
  
-     <footer id="footer">
+     <footer id="footer" style="background-color:#232f3e ;color:white!important; ">
     
     
      </footer>
     <script>
-         
-       
+          
     /******************************************************var getdata***************/
             var xhttp= new XMLHttpRequest();
             xhttp.onreadystatechange=function(){
@@ -90,22 +213,6 @@
             console.log(datajson);
             
            /*************************header***************************/
-           var header= `
-          <div id='logoWrapper'>
-          <img id='logo' src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png" />
-          </div>
-          <input type="text" placeholder="search" class="inptext"/>
-          <ul>
-              
-               <li><a href="#" class="active">Home</a></li>   
-               <li><a href="#products">Product</a></li>   
-               <li><a href="pages/login.html">Login</a></li>     
-               <li><a href="pages/register.html">Register</a></li>    
-                  
-
-              
-          </ul>`;
-          document.getElementById("header").innerHTML=header; 
 
            /************************slider************************/
            var slider=` 
@@ -160,34 +267,47 @@
 
            /*************************products******************************/
            var items="";
-           for(var i=0;i<30;i++){            
-                    items+=`
+           let all_category=new Set();
+           for(let item of datajson.products)
+           {
+            all_category.add(item.category)
+           }
+           fillproducts=(category)=>{ 
+            items="";
+            if(all_category.has(category)||category=="All")
+            {
+                        for(var i=0;i<30;i++){  
+              if(datajson.products[i].category==category||category=="All")
+              {
+                items+=`
                     <div class="col-sm-11 col-md-5 col-lg-3 my-1 ">
                 <div class="card   text-light" style="width: 18rem;border: 0px; ">
-                    <div class="card-header"style="background-color: #ff9900;">
+                    <div class="card-header"style="background-color: #37475a;">
                       ${datajson.products[i].title} 
                        </div>                                              
-                      <div class="card-body m-0 p-0"  >
-                        <img src="${datajson.products[i].thumbnail}" class="d-block      
-                        alt="..." style="max-width:100%;max-height:10rem;">
+                      <div class=" card-body m-0 p-0"  >
+                        <img src="${datajson.products[i].thumbnail}" class="d-block zoom "  alt="..." style="max-width:100%;height:10rem;">
 
                         <h1 class="card-title m-0 p-0"style="font-size:  1rem;"> 
                           <div class="price-eCommerce" > 
-                            <div class="line-height-coin">${datajson.products[i].price}</div> 
-                            <div class="line-height-integer">$</div> 
+                            <div class="line-height-coin"style="color:red">${datajson.products[i].price}</div> 
+                            <div class=" fa-2x"style="color:red" >$</div> 
                               </div>
                         </h1>
-                         
+                        <div class="card-header card-btn"style="border-radius:5px;background-color: #079adf;" onclick="setpro(${i})">
+                             <i class="fa-solid fa-eye fa-1x"></i> <b>Show Details </b> 
+                           </div> 
                            <p  class=" m-3"style="color:#3e4551; ">
-                            <i class="fa-solid fa-cubes-stacked fa-3x"></i><span class"fs-3 " ><b> ${datajson.products[i].stock}  </b></span> left in stock
-                            <br><br>
+                            <i class="fa-solid fa-cubes-stacked 1x"></i><span class"fs-3 " ><b> ${datajson.products[i].stock}  </b></span> left in stock
+                            <br> 
                          
-                            <i class="fa-solid fa-star fa-3x"></i><span class"fs-3 " > <b> ${datajson.products[i].rating}% </b> </span> Rating
-                            <br><br>
+                            <i class="fa-solid fa-star 1x"></i><span class"fs-3 " > <b> ${datajson.products[i].rating}% </b> </span> Rating
+                            <br> 
                            
                            </p>
-                           <div class="card-header"style="background-color: #ff9900;" onclick="setpro(${i})">
-                            <i class="fa-solid fa-cart-shopping fa-3x"></i> Add To Cart  
+                          
+                           <div class="card-header card-btn"style="background-color: #ff9900;" onclick="add_to_cart(${i})">
+                            <i class="fa-solid fa-cart-shopping fa-2x"></i> Add To Cart  
                            </div> 
                     </div>
      
@@ -195,9 +315,18 @@
               </div> 
                     `;
   
+              }       
+                  
 
            }
-           setproducts=()=>{
+              
+            }else{
+              items=`<h1 style="color:red">${category} Not found</h1>`;
+            }
+
+           }
+           fillproducts("All");
+          setproducts=()=>{
             document.getElementById("products").innerHTML=items; 
 
            }
@@ -286,37 +415,42 @@
                 <h2>
                   ${datajson.products[i].title} 
                 </h2>
+                <div class="image">
+                <img class="img" style="width:100%;height:auto; border-radius:20px " src="${datajson.products[i].thumbnail}" >
+            </div>
+            <!--
+            <div class="icons">
+            <img onclick="phones(${datajson.products[i].images[0]}); src="${datajson.products[i].images[0]}">
+            <img onclick="phones(${datajson.products[i].images[1]}); src="${datajson.products[i].images[1]}">
+            <img onclick="phones(${datajson.products[i].images[2]}); src="${datajson.products[i].images[2]}">
+            <img onclick="phones(${datajson.products[i].images[3]}); src="${datajson.products[i].images[3]}">
+            </div>   
+            -->
                 <p>
                   ${datajson.products[i].description}
                 </p>
                 <h1 class="card-title m-0 p-0"style="font-size:  1rem;"> 
                           <div class="price-eCommerce" > 
                             <div class="line-height-coin">${datajson.products[i].price}</div> 
-                            <div class="line-height-integer">$</div> 
+                            <div class="fa-1x">$</div> 
                               </div>
                         </h1>
                         <p  class=" m-3"style="color:#3e4551; ">
-                            <i class="fa-solid fa-cubes-stacked fa-3x"></i><span class"fs-3 " ><b> ${datajson.products[i].stock}  </b></span> left in stock
+                            <i class="fa-solid fa-cubes-stacked 1x"></i><span class"fs-3 " ><b> ${datajson.products[i].stock}  </b></span> left in stock
                             <br><br>
                          
-                            <i class="fa-solid fa-star fa-3x"></i><span class"fs-3 " > <b> ${datajson.products[i].rating}% </b> </span> Rating
+                            <i class="fa-solid fa-star 1x"></i><span class"fs-3 " > <b> ${datajson.products[i].rating}% </b> </span> Rating
                             <br><br>
-                <a href="#" onclick="setproducts();hidepro()">All Products</a>
+                            <div class="card-header card-btn"style="background-color: #ff9900;" onclick="add_to_cart(${i})">
+                            <i class="fa-solid fa-cart-shopping fa-2x"></i> Add To Cart  
+                           </div> 
+                            <br><br>
+                           <a href="#" onclick="setproducts();hidepro()">All Products</a>
+                           <br><br>
             </div>
-            <div class="image">
-                <img class="img" src="${datajson.products[i].thumbnail}" >
-            </div>
+           
         </div>    
-    <div class="icons">
-        <img onclick="phones(src);colors('#000')" src="${datajson.products[i].images[0]}">
-        <img onclick="phones(src);colors('#247ec8')" src="${datajson.products[i].images[1]}">
-        <img onclick="phones(src);colors('#1e1e1e')" src="${datajson.products[i].images[2]}">
-        <img onclick="phones(src);colors('#c79b53')" src="${datajson.products[i].images[3]}">
-
-
-
-    </div>   
-    
+  
     </div>
 
            `;
@@ -329,7 +463,107 @@
         document.getElementById("one_product").innerHTML=" "; 
 
       }
+
+       /*****************************************************************************/
+       let cart_value=document.getElementById('cart_value');
+          let cart_map=new Map();
+          /****************/
+          let total_cart="";
+          let total_cart_body="";
+          let total_price=0;
+          /*******************/
+           show_cart=()=>{
+            let total_cart_header= `   <h2 class="card-title">your cart</h2> 
+             <div class="cart-content"> 
+              <div class="cart-box">`;
+            total_cart_body="";
+         for (const [key,value] of cart_map.entries())  
+                   {         
+                     console.log( `${key} , ${value} ` );
+                  
+           total_price+=(datajson.products[key].price*value); 
+            total_cart_body+=`   
+                  <br>   
+                
+                   
+                        <img src="${datajson.products[key].thumbnail}" alt="" class="cart-img">
+                        <div class="detail-box">
+                            <div class="cart-product-title">${datajson.products[key].title}</div>
+                            <div class="cart-price">$${datajson.products[key].price}</div>
+                            <input type="number" onchange="update_cart(value,${key})" value="${value}"min=0 class="cart-quantity">
+                  </div>
+                       `;
+          }
+        
+                let total_cart_footer=` 
+                <!-- remove cart 
+                         <i class="fa-solid fa-circle-xmark"   id="close-cart"></i>-->
+                    </div>
+                </div>
+                 <!-- total -->
+                <div class="total">
+                    <div class="total-title">Total = $</div>
+                    <div id="total-price""class="total-price">${total_price}</div>
+                </div>
+                <!-- buy but -->
+                <button type="button" class="btn-buy">Buy Now</button>`;
+                total_cart=total_cart_header+total_cart_body+total_cart_footer;
+                document.getElementById("totoal_cart").innerHTML= total_cart;
+
+          }
+          show_cart();
+          /*********************/
+         add_to_cart=(i)=>{
+          if(cart_map.has(i) )
+          {
+            let counter=cart_map.get(i)+1;
+            cart_map.set(i,counter)
+          }
+          else{
+            cart_map.set(i,1)
+          }
+          total_price=0;
+          for (const [key,value] of cart_map.entries())  
+                   {         
+                    // console.log( `${key} , ${value} ` );
+
+            total_price+=(datajson.products[key].price*value);
+          }
+          show_cart();
+          document.getElementById("total-price").innerHTML= total_price/2;
+         document.getElementById("cart_value").innerHTML= total_price/2;
+          //console.log(total_price);
+         } 
+         ////////////////////////////////*//////////////////////////
+         update_cart=(new_value,i)=>{
+          //console.log(new_value+" , "+item_key)
+         
+          if(cart_map.has(i)&&new_value!=0 )
+          {
+             cart_map.set(i,new_value)
+          }
+          else if(new_value>0){
+            cart_map.set(i,new_value)
+          }
+          else{
+            cart_map.delete(i)
+
+          }
+          total_price=0;
+          for (const [key,value] of cart_map.entries())  
+                   {         
+                    // console.log( `${key} , ${value} ` );
+
+            total_price +=( parseInt( datajson.products[key].price )* value);
+          }
+          show_cart();
+          document.getElementById("total-price").innerHTML= total_price/2;
+         document.getElementById("cart_value").innerHTML= total_price/2;
+          //console.log(total_price);
+         }
     </script>
-      <script src="js/script.js"></script>
-</body>
+      <script   src="js/cart.js"></script>
+      <script   src="js/script.js"></script>
+
+ </body>
 </html>

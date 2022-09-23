@@ -2,84 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/register.css">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="css/register.css">
+    
+    <!-- cdn bootstrab -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script> -->
+        
+        <!-- bootstrab js files secondry -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script> -->
+            
+            <!-- font awesome -->
+            <script src="https://kit.fontawesome.com/3480928c2f.js" crossorigin="anonymous"></script>
+            
+            <!-- iconScout -->
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+            
+            
 
 
 </head>
 <body>
-
-    <main>
-        <div id="container">
-            <div id="aside_left">
-           
-            </div>
-            <div id="products">
-                <h1> Amazon  </h1>       
-
-                <div id="register">
-
-                    <form id="form" action="ok.html" method="post" >
-                        <fieldset> 
-                            <br/><br/>
-                            <legend>Sign in </legend>
-                            <label for="userId"> </label>
-                             <h4>Email or mobile phone number</h4>
-                            <label for="emailInput">Email :  </label>
-                            <input id="emailInput" autofocused placeholder="example@site.com" type="email"  autocomplete="off">
-                            <br><br/>
-
-                            <label for="pass1">Password : </label>
-                            <input type="password" id="pass1" value="1111111" minlength="8" maxlength="16" pattern="[A-Za-z0-9]{8,16}" required>
-                            <br><br>
-                  
-                            <input type="submit" value="Submit" formnovalidate >
-                            
-                        </fieldset>
-                    </form>    <br/>
-
-                </div>
-                <button onclick="window.location.assign('register.html')">Create a new account</button>
-
-                <br/><br/>
-            </div>         
-            <div id="side_right">
-          
-            </div>
-
-        </div>
-        <section >
-        </section>
-    </main>
-    <script>
-    const form=document.querySelector('#form');
-     const email=document.querySelector('#emailInput');
-    const password=document.querySelector('#pass1');
  
-    var patt=/^([a-zA-Z0-9_-]+)@(yahoo|gmail)\.(com)$/;
 
-    form.addEventListener('submit',(e)=>{
-        if(checkInputs()==false)
-        {    
-               e.preventDefault();
-        }
-        });
-        /************************************************** */
-        function checkInputs()
-        {
-        let checked=true;
-         const passwordvalue =  password.value.trim();
-         
-        if( !email.value.match(patt)||passwordvalue=='' ){
-             checked=false;
-        }  
-        return checked;
-    }
+    <div class="container"> 
+        <div class="forms">
+            <div class="form login">
+                <span class="title">login</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your Email" Required>
+                        <i class="uil uil-envelope icon"></i>
+                        
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Enter your password" Required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showhidepw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logcheck">
+                            <label for="logcheck" class="text">Remember me</label>
+                        </div>
+                            <a href="#" class="text">Forgot Password?</a>
+                    </div>
+                    
+                    <div class="input-field button">
+                        <input type="button" value="login Now" Required>
+                        
+                    </div>
+
+                </form>    
+
+                <div class="login-signup ">
+                    <span class="text">Not a member? 
+                        <a href="#" class="text signup-link">Signup now</a>
+                    </span>    
+                </div>
+            </div>
 
 
-    </script>
-   
+                <!-- regiteration -->
+            <div class="form Signup">
+                <span class="title">Registeration</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your Name" Required>
+                        <i class="uil uil-user"></i>
+                        
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" placeholder="Enter your Email" Required>
+                        <i class="uil uil-envelope icon"></i>
+                        
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Create a password" Required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showhidepw "></i>
+                       
+                    </div>
+                    
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Confirm a password" Required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showhidepw "></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logcheck">
+                            <label for="logcheck" class="text">Remember me</label>
+                        </div>
+                            <a href="#" class="text">Forgot Password?</a>
+                    </div>
+                    
+                    <div class="input-field button">
+                        <input type="button" value="login Now" Required>
+                        
+                    </div>
+
+                </form>    
+
+                <div class="login-signup">
+                    <span class="text">Not a member? 
+                        <a href="#" class="text login-link">Signup now</a>
+                    </span>    
+                </div>
+            </div>
+
+
+            
+            
+
+
+            
+            
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="reg.js"></script>
 </body>
 </html>
